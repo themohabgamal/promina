@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:promina/features/home/logic/cubit/home_cubit.dart';
 import 'package:promina/features/home/widgets/header_widget.dart';
 import 'package:promina/features/home/widgets/image_text_container.dart';
+import 'package:promina/features/login/ui/screens/login_screen.dart';
 import '../../core/networking/api_service.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -25,9 +26,17 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const ImageTextContainer(
-                    imagePath: 'assets/images/log-out.png',
-                    text: 'Logout',
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
+                    },
+                    child: const ImageTextContainer(
+                      imagePath: 'assets/images/log-out.png',
+                      text: 'Logout',
+                    ),
                   ),
                   InkWell(
                     onTap: () {
